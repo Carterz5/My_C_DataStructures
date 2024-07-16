@@ -8,7 +8,7 @@
 //Refer to datastructures.h for struct definitions
 
 //-----------------------------
-//------------STACK------------
+//------------Stack------------
 //-----------------------------
 
 //Creates a struct on the heap using malloc, fills struct with passed data, returns pointer to that struct.
@@ -154,3 +154,35 @@ void print_hash_table(hash_entry* hash_table[]){
     printf("\n");
 
 }
+
+
+
+//------------------------
+//----------Misc----------
+//------------------------
+
+//converts a double into a string with trailing zeroes removed. Returns pointer to converted string.
+char* dtos(double num){
+    char buffer[100] = {'\0'};
+    char* output = malloc(100 * sizeof(char));
+    for(int i = 0; i < 100; i++){
+        output[i] = '\0';
+    }
+    int chop = 0;
+    snprintf(buffer, 100, "%f", num);
+
+    for(int i = strlen(buffer); i > 0; i--){
+        if(buffer[i] > 48 && buffer[i] < 58){
+            chop = i+1;
+            break;
+        }
+        if(buffer[i] == '.'){
+            chop = i;
+            break;
+        }
+    }
+
+    strncpy(output, buffer, chop);
+    return output;
+}
+

@@ -34,3 +34,5 @@ hash_entry* create_hash_entry(char *word);
 void print_hash_table(hash_entry* hash_table[]);
 
 
+//Misc
+char* dtos(double num);
