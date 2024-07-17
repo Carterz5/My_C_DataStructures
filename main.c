@@ -4,10 +4,6 @@
 #include "datastructures.h"
 
 int main(){
-    stack_entry_t* stack_head = NULL;
-    hash_entry* hash_table[TABLE_SIZE];
-    init_hash_table(hash_table);
-    treenode *root = NULL;
     int flag = 0;
     
     printf("What data structure would you like to demonstrate?\n");
@@ -16,6 +12,8 @@ int main(){
 
     switch (flag){
     case 1:
+        stack_entry_t* stack_head = NULL;
+
         //adding data to stack
         for (int i = 0; i < 5; i++){
             printf("pushing %d to the stack\n", i);
@@ -32,6 +30,10 @@ int main(){
         break;
 
     case 2:
+        hash_entry* hash_table[TABLE_SIZE];
+        init_hash_table(hash_table);
+
+
         //inserting into hash table, then printing
         insert_hash_table(create_hash_entry("Billy"), hash_table);
         insert_hash_table(create_hash_entry("John"), hash_table);
@@ -45,6 +47,8 @@ int main(){
     
 
     case 3:
+        treenode *root = NULL;
+
         printf("inserting 14\n");
         tree_insertnumber(&root, 14);
 
@@ -78,18 +82,10 @@ int main(){
         
 
         break;
+
     default:
         break;
     }
-
-
-
-
- 
-
-
-
-
 
     return 0;
 }
