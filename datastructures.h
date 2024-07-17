@@ -48,11 +48,11 @@ treenode* createtreenode(int value);
 bool tree_insertnumber(treenode **rootptr, int value);
 bool tree_findnumber(treenode *root, int value);
 void printtree_rec(treenode *root, int level);
-void printtree(treenode *root);
+void print_tree(treenode *root);
 
 
 
 
 //Misc
 char* dtos(double num);
-void printtabs(int numtabs);
+void print_tabs(int numtabs);

@@ -208,28 +208,28 @@ bool tree_findnumber(treenode *root, int value){
 
 void printtree_rec(treenode *root, int level){
     if(root == NULL){
-        printtabs(level);
+        print_tabs(level);
         printf("---empty---\n");
         return;
     }
-    printtabs(level);
+    print_tabs(level);
     printf("value = %d\n", root->value);
 
-    printtabs(level);
+    print_tabs(level);
     printf("left\n");
     printtree_rec(root->left, level+1);
 
-    printtabs(level);
+    print_tabs(level);
     printf("right\n");
     printtree_rec(root->right, level+1);
 
-    printtabs(level);
+    print_tabs(level);
     printf("done\n");
 
     return;
 }
 
-void printtree(treenode *root){
+void print_tree(treenode *root){
     printtree_rec(root, 0);
 }
 
@@ -266,7 +266,7 @@ char* dtos(double num){
 }
 
 //Prints desired number of tabs
-void printtabs(int numtabs){
+void print_tabs(int numtabs){
     for(int i = 0; i < numtabs; i++){
         printf("\t");
     }
