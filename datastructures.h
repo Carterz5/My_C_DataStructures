@@ -18,7 +18,7 @@ void print_stack(stack_entry_t** head);
 
 
 //Hash_table
-#define TABLE_SIZE 256
+#define TABLE_SIZE 32
 #define MAX_WORD_LEN 64
 
 typedef struct hash_entry {
@@ -34,5 +34,25 @@ hash_entry* create_hash_entry(char *word);
 void print_hash_table(hash_entry* hash_table[]);
 
 
+
+
+
+//Tree
+typedef struct treenode {
+    int value;
+    struct treenode *left;
+    struct treenode *right;
+} treenode;
+
+treenode* createtreenode(int value);
+bool tree_insertnumber(treenode **rootptr, int value);
+bool tree_findnumber(treenode *root, int value);
+void printtree_rec(treenode *root, int level);
+void printtree(treenode *root);
+
+
+
+
 //Misc
 char* dtos(double num);
+void printtabs(int numtabs);

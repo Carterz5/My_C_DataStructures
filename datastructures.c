@@ -156,6 +156,85 @@ void print_hash_table(hash_entry* hash_table[]){
 }
 
 
+//------------------------
+//----------Tree----------
+//------------------------
+
+treenode* createtreenode(int value){
+    treenode* result = malloc(sizeof(treenode));
+    if(result !=NULL){
+        result->value = value;
+        result->left = NULL;
+        result->right = NULL;
+    }
+    return result;
+}
+
+bool tree_insertnumber(treenode **rootptr, int value){
+    treenode *root = *rootptr;
+    if(root == NULL){
+        //tree is empty
+        (*rootptr) = createtreenode(value);
+        return true;
+    }
+    if(value == root->value){
+        //already in tree, do nothing
+        return false;
+    }
+    if(value < root->value){
+        return tree_insertnumber(&(root->left), value);
+    } else {
+        return tree_insertnumber(&(root->right), value);
+    }
+
+}
+
+bool tree_findnumber(treenode *root, int value){
+    if(root == NULL){
+        return false;
+    }
+
+    if(root->value == value){
+        return true;
+    }
+
+    if(value < root->value){
+        return tree_findnumber(root->left, value);
+    } else {
+        return tree_findnumber(root->right, value);
+    }
+
+}
+
+void printtree_rec(treenode *root, int level){
+    if(root == NULL){
+        printtabs(level);
+        printf("---empty---\n");
+        return;
+    }
+    printtabs(level);
+    printf("value = %d\n", root->value);
+
+    printtabs(level);
+    printf("left\n");
+    printtree_rec(root->left, level+1);
+
+    printtabs(level);
+    printf("right\n");
+    printtree_rec(root->right, level+1);
+
+    printtabs(level);
+    printf("done\n");
+
+    return;
+}
+
+void printtree(treenode *root){
+    printtree_rec(root, 0);
+}
+
+
+
 
 //------------------------
 //----------Misc----------
@@ -186,3 +265,11 @@ char* dtos(double num){
     return output;
 }
 
+//Prints desired number of tabs
+void printtabs(int numtabs){
+    for(int i = 0; i < numtabs; i++){
+        printf("\t");
+    }
+
+    return;
+}
