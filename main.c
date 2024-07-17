@@ -67,7 +67,7 @@ int main(){
         printf("inserting 25\n");
         tree_insertnumber(&root, 25);
 
-        printtree(root);
+        print_tree(root);
         printf("\n");
         //tree_findnumber returns 1 if it exists in the tree, 0 if not.
         int array[6] = {20, 8, 16, 125, 1, 2};
