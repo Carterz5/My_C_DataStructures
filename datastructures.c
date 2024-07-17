@@ -160,6 +160,7 @@ void print_hash_table(hash_entry* hash_table[]){
 //----------Tree----------
 //------------------------
 
+//mallocs a tree struct, adds data and sets left/right to null
 treenode* createtreenode(int value){
     treenode* result = malloc(sizeof(treenode));
     if(result !=NULL){
@@ -170,6 +171,7 @@ treenode* createtreenode(int value){
     return result;
 }
 
+//recursively checks for space on the tree, moving left if value is less, right otherwise
 bool tree_insertnumber(treenode **rootptr, int value){
     treenode *root = *rootptr;
     if(root == NULL){
@@ -189,6 +191,7 @@ bool tree_insertnumber(treenode **rootptr, int value){
 
 }
 
+//recursively steps through the tree, going left if value is less, right otherwise. Returns true if value is found within the tree.
 bool tree_findnumber(treenode *root, int value){
     if(root == NULL){
         return false;
@@ -206,6 +209,7 @@ bool tree_findnumber(treenode *root, int value){
 
 }
 
+//prints left and right values of root, if there is no data prints empty. Indent based on how many recursions deep we are.
 void printtree_rec(treenode *root, int level){
     if(root == NULL){
         printtabs(level);
@@ -229,6 +233,7 @@ void printtree_rec(treenode *root, int level){
     return;
 }
 
+//initial call of recursive printtree function. Notably it passes the initial indent level.
 void printtree(treenode *root){
     printtree_rec(root, 0);
 }
